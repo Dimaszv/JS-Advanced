@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Form work1</title>
+  <style>
+    .modal-wrap {
+      margin: 0 auto;
+      width: 80%;
+      height: 500px;
+    }
+
+    .modal {
+      margin: 100 auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      align-content: space-around;
+
+    }
+
+    .circle {
+      display: block;
+      border-radius: 50%;
+      background-color: green;
+    } 
+  </style>
+  <script>
+    /*
+      Задание:
+        Сделать шиблонизатор элемента по:
+        Ширине input type=range
+        Цвету  input type=color
+        Высоте input type=number
+        Скругление углов input type=number
+        Margin input type=number
+
+      Свойсвта: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
+
+        + Сделать выборку цвета из рандомных 20 цветов которые выбираются из появившегося блока :
+        https://s3.envato.com/files/230412754/screenshots/1.png
+        За заготовку для рандома цвета использовать функцию из первых занятий.
+
+    */
+
+    window.addEventListener("DOMContentLoaded", function () {
+      let customBlock = document.getElementById('result');
+      
+      let myWidth = document.getElementById('myWidth');
+      let myColor = document.getElementById('myColor');
+      let myHeight = document.getElementById('myHeight');
+      let myBorderRadius = document.getElementById('myBorderRadius');
+      let myMargin = document.getElementById('myMargin');
+
+      myWidth.addEventListener('input', function(event){
+        customBlock.style.width = event.target.value + 'px';
+      });
+
+      myColor.addEventListener('input', function(event){        
+        customBlock.style.background = event.target.value;
+      });
+
+      myHeight.addEventListener('input', function(event){
+        customBlock.style.height = event.target.value + 'px';
+      });
+
+      myBorderRadius.addEventListener('input', function(event){
+        customBlock.style.borderRadius = event.target.value + 'px';
+      });
+
+      myMargin.addEventListener('input', function(event){
+        customBlock.style.margin = event.target.value + 'px';
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <div class="Templating">
+    <form>
+      <input type="range" id="myWidth" min="10" max="500" step="10"/>
+      <input type="color" id="myColor" min="10" max="500" step="10"/>
+      <input type="range" id="myHeight" min="10" max="500" step="10"/>
+      <input type="range" id="myBorderRadius" min="10" max="500" step="10"/>
+      <input type="range" id="myMargin" min="10" max="500" step="10"/>
+    </form>
+
+    <div class="TemplatingResult">
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+
+  <!-- <div class="modal-wrap">
+    <div class="modal">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div> -->
+
+  <style>
+    #colors{
+      width: 200px;
+
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .result{
+      width: 50px;
+      background: gray;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    #MyValidateForm{
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #MyValidateForm input{
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+    }
+    .circle{
+      width: 30px;
+      height: 30px;
+      background: #eee;
+      border-radius: 50%;
+    }
+  </style>
+</body>
+</html>
